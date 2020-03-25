@@ -1,4 +1,4 @@
-export function isDescriptor(desc) {
+exports.isDescriptor = function(desc) {
     if (!desc || !desc.hasOwnProperty) {
         return false;
     }
@@ -12,14 +12,16 @@ export function isDescriptor(desc) {
     }
 
     return false;
-}
+};
 
-export function decorate(handleDescriptor, entryArgs) {
+exports.decorate = function(handleDescriptor, entryArgs) {
     if (isDescriptor(entryArgs[entryArgs.length - 1])) {
         return handleDescriptor(...entryArgs, []);
     } else {
-        return function () {
+        return function() {
             return handleDescriptor(...Array.prototype.slice.call(arguments), entryArgs);
         };
     }
-}
+};
+
+module.export = exports;

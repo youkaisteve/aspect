@@ -1,4 +1,4 @@
-import {decorate} from './util';
+const { decorate } = require('./util');
 
 function handleDescriptor(target, key, descriptor, [handle = null]) {
     const fn = descriptor.value;
@@ -12,11 +12,11 @@ function handleDescriptor(target, key, descriptor, [handle = null]) {
                 args: arguments
             };
             if (handle) {
-                handle(metadata)
+                handle(metadata);
             }
-            return fn.apply(this, metadata.args)
+            return fn.apply(this, metadata.args);
         }
-    }
+    };
 }
 
 /**
@@ -25,6 +25,6 @@ function handleDescriptor(target, key, descriptor, [handle = null]) {
  * @param [handle] {Function} - 自定义方法,接收一个metadata参数，有以下属性className，methodName和args
  * @returns {*}
  */
-export default function beforeMethod(...args) {
+module.exports = function beforeMethod(...args) {
     return decorate(handleDescriptor, args);
-}
+};

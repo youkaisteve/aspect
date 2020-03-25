@@ -1,10 +1,10 @@
-import beforeMethod from './beforeMethod';
-import afterMethod from './afterMethod';
-import afterMethodOnClass from './afterMethodOnClass';
-import beforeMethodOnClass from './beforeMethodOnClass';
-import { decorate } from './util';
+const beforeMethod = require('./beforeMethod');
+const afterMethod = require('./afterMethod');
+const afterMethodOnClass = require('./afterMethodOnClass');
+const beforeMethodOnClass = require('./beforeMethodOnClass');
+const { decorate } = require('./util');
 
-export default {
+module.export = {
     decorate,
     beforeMethod,
     afterMethod,
