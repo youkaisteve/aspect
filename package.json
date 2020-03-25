@@ -1,5 +1,5 @@
 {
-    "name": "aspects",
+    "name": "aspect",
     "version": "1.0.0",
     "description": "decorator aspect",
     "main": "src/index.js",
@@ -8,7 +8,7 @@
     },
     "keywords": [
         "decorator",
-        "aspects"
+        "aspect"
     ],
     "repository": {
         "type": "git",
