@@ -1,13 +1,7 @@
-const beforeMethod = require('./beforeMethod');
-const afterMethod = require('./afterMethod');
-const afterMethodOnClass = require('./afterMethodOnClass');
-const beforeMethodOnClass = require('./beforeMethodOnClass');
+exports.beforeMethod = require('./beforeMethod');
+exports.afterMethod = require('./afterMethod');
+exports.afterMethodOnClass = require('./afterMethodOnClass');
+exports.beforeMethodOnClass = require('./beforeMethodOnClass');
 const { decorate } = require('./util');
-
-module.export = {
-    decorate,
-    beforeMethod,
-    afterMethod,
-    afterMethodOnClass,
-    beforeMethodOnClass
-};
+exports.decorate = decorate;
+module.export = exports;

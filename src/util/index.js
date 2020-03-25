@@ -1,4 +1,4 @@
-exports.isDescriptor = function(desc) {
+function isDescriptor(desc) {
     if (!desc || !desc.hasOwnProperty) {
         return false;
     }
@@ -12,10 +12,10 @@ exports.isDescriptor = function(desc) {
     }
 
     return false;
-};
+}
 
 exports.decorate = function(handleDescriptor, entryArgs) {
-    if (isDescriptor(entryArgs[entryArgs.length - 1])) {
+    if (entryArgs && entryArgs.length > 0 && isDescriptor(entryArgs[entryArgs.length - 1])) {
         return handleDescriptor(...entryArgs, []);
     } else {
         return function() {
