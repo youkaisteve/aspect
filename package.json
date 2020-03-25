@@ -1,15 +1,19 @@
 {
-  "name": "aspects",
-  "version": "1.0.0",
-  "description": "decorator aspect",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "decorator",
-    "aspects"
-  ],
-  "author": "youkaisteve",
-  "license": "MIT"
+    "name": "aspects",
+    "version": "1.0.0",
+    "description": "decorator aspect",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "decorator",
+        "aspects"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:youkaisteve/aspect.git"
+    },
+    "author": "youkaisteve",
+    "license": "MIT"
 }
