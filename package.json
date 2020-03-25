@@ -1,5 +1,5 @@
 {
-    "name": "aspect",
+    "name": "yk-aspect",
     "version": "1.0.0",
     "description": "decorator aspect",
     "main": "src/index.js",
