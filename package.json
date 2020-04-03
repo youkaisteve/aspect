@@ -1,6 +1,6 @@
 {
     "name": "yk-aspect",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "decorator aspect",
     "files": [
         "build"
