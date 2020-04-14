@@ -5,7 +5,7 @@
  * @param {Function} options.handle - handle方法接收一个metadata参数，有以下属性className、methodName、args和result
  * @returns {Function}
  */
-module.export = function afterMethodOnClass(options) {
+module.exports = function afterMethodOnClass(options) {
     options = Object.assign({}, {
         methodPattern: /\.*/,
         handle: function (metadata) {}

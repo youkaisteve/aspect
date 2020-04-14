@@ -43,6 +43,6 @@ function handleDescriptor(target, key, descriptor, [handle = null]) {
  * @param [handle] {Function} - 自定义方法,接收一个metadata参数，有以下属性className，methodName和args
  * @returns {*}
  */
-module.export = function afterMethod(...args) {
+module.exports = function afterMethod(...args) {
     return decorate(handleDescriptor, args);
 };
