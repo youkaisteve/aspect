@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * 在class的method执行后注入处理逻辑
  * @param options
@@ -8,26 +10,26 @@
 module.exports = function afterMethodOnClass(options) {
     options = Object.assign({}, {
         methodPattern: /\.*/,
-        handle: function (metadata) {}
+        handle: function handle(metadata) {}
     }, options);
 
     return function (target) {
-        Reflect.ownKeys(target.prototype).forEach(key => {
+        Reflect.ownKeys(target.prototype).forEach(function (key) {
             if (key !== 'constructor' && target.prototype[key] && typeof target.prototype[key] === 'function') {
                 if (!options.methodPattern || !options.methodPattern.test(key)) {
                     return;
                 }
-                let oldOne = target.prototype[key];
-                let newOne = function () {
-                    const metaData = {
+                var oldOne = target.prototype[key];
+                var newOne = function newOne() {
+                    var metaData = {
                         className: target.name,
                         methodName: key,
                         args: arguments
                     };
-                    let result = oldOne.apply(this, arguments);
+                    var result = oldOne.apply(this, arguments);
 
                     if (result.constructor.name === 'Promise') {
-                        result.then(result => {
+                        result.then(function (result) {
                             metaData.result = result || null;
                             options.handle(metaData);
                             return metaData.result;

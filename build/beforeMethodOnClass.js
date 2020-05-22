@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * 在class的method执行前注入处理逻辑
  * @param options
@@ -8,18 +10,18 @@
 module.exports = function beforeMethodOnClass(options) {
     options = Object.assign({}, {
         methodPattern: /\.*/,
-        handle: function (metadata) {}
+        handle: function handle(metadata) {}
     }, options);
 
     return function (target) {
-        Reflect.ownKeys(target.prototype).forEach(key => {
+        Reflect.ownKeys(target.prototype).forEach(function (key) {
             if (key !== 'constructor' && target.prototype[key] && typeof target.prototype[key] === 'function') {
                 if (!options.methodPattern || !options.methodPattern.test(key)) {
                     return;
                 }
-                let oldOne = target.prototype[key];
-                let newOne = function () {
-                    let metaData = {
+                var oldOne = target.prototype[key];
+                var newOne = function newOne() {
+                    var metaData = {
                         target: this,
                         className: target.name,
                         methodName: key,

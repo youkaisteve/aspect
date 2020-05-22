@@ -1,11 +1,15 @@
+'use strict';
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function isDescriptor(desc) {
     if (!desc || !desc.hasOwnProperty) {
         return false;
     }
 
-    const keys = ['value', 'initializer', 'get', 'set'];
+    var keys = ['value', 'initializer', 'get', 'set'];
 
-    for (let i = 0, l = keys.length; i < l; i++) {
+    for (var i = 0, l = keys.length; i < l; i++) {
         if (desc.hasOwnProperty(keys[i])) {
             return true;
         }
@@ -16,10 +20,10 @@ function isDescriptor(desc) {
 
 exports.decorate = function (handleDescriptor, entryArgs) {
     if (entryArgs && entryArgs.length > 0 && isDescriptor(entryArgs[entryArgs.length - 1])) {
-        return handleDescriptor(...entryArgs, []);
+        return handleDescriptor.apply(undefined, _toConsumableArray(entryArgs).concat([[]]));
     } else {
         return function () {
-            return handleDescriptor(...Array.prototype.slice.call(arguments), entryArgs);
+            return handleDescriptor.apply(undefined, _toConsumableArray(Array.prototype.slice.call(arguments)).concat([entryArgs]));
         };
     }
 };

@@ -14,11 +14,11 @@ function isDescriptor(desc) {
     return false;
 }
 
-exports.decorate = function(handleDescriptor, entryArgs) {
+exports.decorate = function (handleDescriptor, entryArgs) {
     if (entryArgs && entryArgs.length > 0 && isDescriptor(entryArgs[entryArgs.length - 1])) {
         return handleDescriptor(...entryArgs, []);
     } else {
-        return function() {
+        return function () {
             return handleDescriptor(...Array.prototype.slice.call(arguments), entryArgs);
         };
     }
